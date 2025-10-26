@@ -1,7 +1,7 @@
 <header class="main-header header-style1 flex">
     <!-- Header Lower -->
     <div id="header">
-        <div class="header-top">
+        {{-- <div class="header-top">
             <div class="header-top-wrap flex-two">
                 <div class="header-top-right">
                     <ul class=" flex-three">
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> --}}
         <div class="header-lower">
             <div class="tf-container full">
                 <div class="row">
@@ -78,7 +78,7 @@
                                 <!-- Main Menu End-->
                             </div>
                             <div class="header-account flex align-center">
-                                <div class="language">
+                                {{-- <div class="language">
                                     <div class="nice-select" tabindex="0">
                                         <img src="assets/images/page/language.svg" alt=""><span
                                             class="current">English</span>
@@ -100,8 +100,8 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
-                                <div class="currency">
+                                </div> --}}
+                                {{-- <div class="currency">
                                     <div class="nice-select" tabindex="0">
                                         <span class="current">USD</span>
                                         <ul class="list">
@@ -110,8 +110,8 @@
                                             <li data-value="ero" class="option">ERO</li>
                                         </ul>
                                     </div>
-                                </div>
-                                <div class="search-mobie relative">
+                                </div> --}}
+                                {{-- <div class="search-mobie relative">
                                     <div class="dropdown">
                                         <a type="button" class="show-search" data-bs-toggle="dropdown"
                                             aria-expanded="false">
@@ -124,7 +124,7 @@
                                             </form>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="icon-bar-header">
                                     <a href="#" class=" flex-three" data-bs-toggle="offcanvas"
                                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">

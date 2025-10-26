@@ -93,22 +93,14 @@
         </div>
         <div class="row footer-bottom">
             <div class="col-md-6">
-                <p class="copy-right">Copyright© 2024 by <a href="#" class="text-main">Themesflat.</a> All
-                    Rights Reserved</p>
+                <p class="copy-right">
+                    Copyright © {{ date('Y') }} by
+                    <a href="#" class="text-main">Alkun IT Solution</a>.
+                    All Rights Reserved
+                </p>
+
             </div>
-            <div class="col-md-6">
-                <ul class="policy-tern flex-six">
-                    <li>
-                        <a href="terms-condition.html">Terms and conditions</a>
-                    </li>
-                    <li>
-                        <a href="help-center.html"> Privacy policy</a>
-                    </li>
-                    <li>
-                        <a href="login.html">Login / Signup</a>
-                    </li>
-                </ul>
-            </div>
+            
         </div>
     </div>
 </footer>
