@@ -15,59 +15,61 @@
 
         </div>
     </section>
-    {{ $services }}
-    <!-- Widget why chose us -->
-    <section class="widget-feature2 services-h4">
-        <div class="tf-container full">
-            <div class="row">
-                <div class="col-md-5 relative">
-                    <div class="image-feature2 relative">
-                        <img src="{{ asset('storage/' . $services->service_attachment) }}" alt="Service Image">
-                    </div>
-                    <div class="exploring flex-five center">
-                        <span class="font-yes text-white ">Never stop
-                            Exploring</span>
-                    </div>
-                </div>
-                <div class="col-md-7">
-                    <div class="content-feature2">
-                        <div class="mb-60">
-                            <span class="sub-title-heading text-main font-yes fs-28-46 wow fadeInUp animated">
-                                Explore the world
-                            </span>
-                            <h2 class="title-heading mb-18 wow fadeInUp animated">
-                                {{ $services->title }}
-
-                                <span class="text-gray font-yes">?</span>
-                            </h2>
-                            <p class="des wow fadeInUp animated">
-                                {{ $services->description }}
-                            </p>
+    @if ($services)
+        <!-- Widget why chose us -->
+        <section class="widget-feature2 services-h4">
+            <div class="tf-container full">
+                <div class="row">
+                    <div class="col-md-5 relative">
+                        <div class="image-feature2 relative">
+                            @if ($services->service_attachment)
+                                <img src="{{ asset('storage/' . $services->service_attachment) }}" alt="Service Image">
+                            @endif
                         </div>
+                        <div class="exploring flex-five center">
+                            <span class="font-yes text-white ">Never stop
+                                Exploring</span>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="content-feature2">
+                            <div class="mb-60">
+                                <span class="sub-title-heading text-main font-yes fs-28-46 wow fadeInUp animated">
+                                    Explore the world
+                                </span>
+                                <h2 class="title-heading mb-18 wow fadeInUp animated">
+                                    {{ $services->title }}
 
-                        <div class="row">
+                                    <span class="text-gray font-yes">?</span>
+                                </h2>
+                                <p class="des wow fadeInUp animated">
+                                    {{ $services->description }}
+                                </p>
+                            </div>
 
-                            @foreach ($services->offers as $item)
-                                <div class="col-md-6">
-                                    <div class="cheackmark flex mb-70">
-                                        <div class="icon flex-five">
-                                            <i class="icon-plane-1"></i>
-                                        </div>
-                                        <div class="content">
-                                            <h5 class="mb-15 wow fadeInUp animated">
-                                                <a href="#">
-                                                    {{ $item['offer_title'] }}
-                                                </a>
-                                            </h5>
-                                            <p class="des wow fadeInUp animated">
-                                                {{ $item['offer_description'] }}
-                                            </p>
+                            <div class="row">
+
+                                @foreach ($services->offers as $item)
+                                    <div class="col-md-6">
+                                        <div class="cheackmark flex mb-70">
+                                            <div class="icon flex-five">
+                                                <i class="icon-plane-1"></i>
+                                            </div>
+                                            <div class="content">
+                                                <h5 class="mb-15 wow fadeInUp animated">
+                                                    <a href="#">
+                                                        {{ $item['offer_title'] }}
+                                                    </a>
+                                                </h5>
+                                                <p class="des wow fadeInUp animated">
+                                                    {{ $item['offer_description'] }}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
 
-                            {{-- <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                 <div class="cheackmark flex mb-70">
                                     <div class="icon flex-five">
                                         <i class="icon-price-tag-1"></i>
@@ -79,7 +81,7 @@
                                             company that offers a wide </p>
                                     </div>
                                 </div>
-                               
+
                             </div>
                             <div class="col-md-6">
                                 <div class="cheackmark flex mb-70">
@@ -93,7 +95,7 @@
                                             company that offers a wide </p>
                                     </div>
                                 </div>
-                               
+
                             </div>
                             <div class="col-md-6">
                                 <div class="cheackmark flex mb-70">
@@ -107,14 +109,15 @@
                                             company that offers a wide </p>
                                     </div>
                                 </div>
-                               
+
                             </div> --}}
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
-    </section>
-    <!-- Widget why chose us -->
+        </section>
+        <!-- Widget why chose us -->
+    @endif
 @endsection

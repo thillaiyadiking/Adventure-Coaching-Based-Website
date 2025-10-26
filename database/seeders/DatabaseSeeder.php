@@ -27,5 +27,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'nasik@admin.com',
             'password' => bcrypt('123456'), // Assuming default password
         ]);
+
+        $this->call([
+            AboutUsSeeder::class,
+            ServiceSeeder::class,
+            TestimonialSeeder::class,
+        ]);
     }
 }

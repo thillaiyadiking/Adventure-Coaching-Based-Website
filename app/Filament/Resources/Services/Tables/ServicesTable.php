@@ -15,6 +15,11 @@ class ServicesTable
     {
         return $table
             ->columns([
+                TextColumn::make('banner_image')
+                    ->label('Banner')
+                    ->formatStateUsing(function ($state) {
+                        return $state ? 'Uploaded' : 'No Banner';
+                    }),
                 TextColumn::make('title')
                     ->label('Title')
                     ->searchable(),

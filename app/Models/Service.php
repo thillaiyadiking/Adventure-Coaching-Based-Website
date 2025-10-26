@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
    protected $fillable = [
+       'banner_image',
        'title',
        'description',
        'service_attachment',

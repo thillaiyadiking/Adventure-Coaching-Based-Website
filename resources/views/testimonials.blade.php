@@ -15,7 +15,10 @@
 
         </div>
     </section>
-    {{ $testimonials }}
+    {{-- {{ $testimonials }} --}}
+    <br>
+    <br>
+
     <!-- Widget Testimonial -->
     <section class="testimonial-section-h4 bg-1">
         <div class="tf-container full">
@@ -70,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-5">
                     <div class="gallery-testimonial-h4 relative">
                         <div thumbsSlider="" class="swiper mySwiperGalllery overflow-hidden">
@@ -99,4 +102,7 @@
 
     </section>
     <!-- Widget Testimonial -->
+    <br>
+    <br>
+
 @endsection

@@ -14,6 +14,10 @@ class ServiceForm
     {
         return $schema
             ->components([
+                FileUpload::make('banner_image')
+                    ->disk('public') // 👈 use Laravel's local public storage
+                    ->directory('services/attachments')
+                    ->visibility('public'),
                 TextInput::make('title')
                     ->label('Title')
                     ->required(),
