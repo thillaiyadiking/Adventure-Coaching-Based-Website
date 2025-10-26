@@ -25,7 +25,7 @@ class TestimonialsTable
                     ->limit(50),
                 TextColumn::make('detailed_testimonials_count')
                     ->label('Detailed Testimonials Count')
-                    ->getStateUsing(fn ($record) => count($record->detailed_testimonials ?? [])),
+                    ->getStateUsing(fn($record) => count($record->detailed_testimonials ?? [])),
             ])
             ->filters([
                 //
