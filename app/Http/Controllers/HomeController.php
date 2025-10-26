@@ -17,7 +17,8 @@ class HomeController extends Controller
     public function aboutUs()
     {
         $about_us = AboutUs::first();
-        return view('about-us', compact('about_us'));
+        $banner_image_path = $about_us->banner_image;
+        return view('about-us', compact('about_us', 'banner_image_path'));
     }
 
     public function contactUs()
@@ -28,13 +29,15 @@ class HomeController extends Controller
     public function services()
     {
         $services = Service::first();
-        return view('services', compact('services'));
+        $banner_image_path = $services->banner_image;
+        return view('services', compact('services', 'banner_image_path'));
     }
 
     public function testimonials()
     {
         $testimonials = Testimonial::first();
-        return view('testimonials', compact('testimonials'));
+        $banner_image_path = $testimonials->banner_image;
+        return view('testimonials', compact('testimonials', 'banner_image_path'));
     }
     public function gallery()
     {

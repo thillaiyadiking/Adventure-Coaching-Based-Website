@@ -15,7 +15,7 @@
 
         </div>
     </section>
-    {{-- {{ $about_us }} --}}
+    {{-- {{ $about_us->banner_image }} --}}
     <!-- Widget About Us -->
     <section class="about-us-h4">
         <div class="tf-container">
@@ -23,7 +23,7 @@
                 <div class="col-md-6">
                     <div class="image-about-h4-wrap relative">
                         <div class="image-about-item relative about-wrap-left">
-                            <img src="{{ asset('storage/' . $about_us->back_image) }}" alt="image"  style="width: 90%">
+                            <img src="{{ asset('storage/' . $about_us->back_image) }}" alt="image" style="width: 90%">
                             <img src="assets/images/page/shape5.1.png" alt="image" class="shape-about-h4">
                             <span class="quote">
                                 {{ $about_us->text_in_image_tag }}
@@ -124,7 +124,7 @@
                         </a>
                         <div class="profile flex-three">
                             <div class="image">
-                                 <img src="{{ asset('storage/' . $about_us->profile_image) }}" alt="Profile Image">
+                                <img src="{{ asset('storage/' . $about_us->profile_image) }}" alt="Profile Image">
                             </div>
                             <div class="content">
                                 {{ $about_us->name_of_founder }}
@@ -149,7 +149,7 @@
                 <div class="col-lg-12">
                     <div class="video-h4-widget relative overflow-hidden mb--14em">
                         <div class="video-wrap">
-                            <a href="{{asset($about_us->video_path)}}"
+                            <a href="{{ asset($about_us->video_path) }}"
                                 class="video-box flex-five z-index3 relative widget-videos">
                                 <i class="icon-Polygon-4"></i>
                             </a>

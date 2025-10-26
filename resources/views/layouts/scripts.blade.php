@@ -12,11 +12,13 @@
 <script src="{{ asset('app/js/main.js') }}"></script>
 
 
+{{-- <img src="{{ asset('storage/' . $banner_image_path) }}" alt="image" style="width: 90%"> --}}
 
 <script>
-    const page = window.location.pathname;
-
     const breadcrumb = document.querySelector('.breadcumb-section');
-
-    breadcrumb.style.backgroundImage = "url({{ asset('app/images/page/mask-bcrumb.png') }})";
+    @if (!empty($banner_image_path))
+        if (breadcrumb) {
+            breadcrumb.style.backgroundImage = "url('{{ asset('storage/' . $banner_image_path) }}')";
+        }
+    @endif
 </script>
