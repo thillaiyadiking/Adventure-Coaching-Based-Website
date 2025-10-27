@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
+use App\Models\Gallery;
 use App\Models\Service;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -41,6 +42,8 @@ class HomeController extends Controller
     }
     public function gallery()
     {
-        return view('gallery');
+        $galleries = Gallery::all();
+        $banner_image_path = $galleries->first()->banner_image;
+        return view('gallery', compact('galleries', 'banner_image_path'));
     }
 }

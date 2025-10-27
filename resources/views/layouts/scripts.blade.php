@@ -10,7 +10,10 @@
 <script src="{{ asset('app/js/wow.min.js') }}"></script>
 <script src="{{ asset('app/js/shortcodes.js') }}"></script>
 <script src="{{ asset('app/js/main.js') }}"></script>
-
+<!-- Javascript -->
+<script src="{{ asset('app/js/jquery.fancybox.js') }}"></script>
+<script src="{{ asset('app/js/map.min.js') }}"></script>
+<script src="{{ asset('app/js/map.js') }}"></script>
 
 {{-- <img src="{{ asset('storage/' . $banner_image_path) }}" alt="image" style="width: 90%"> --}}
 
