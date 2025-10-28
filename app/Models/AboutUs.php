@@ -19,5 +19,7 @@ class AboutUs extends Model
         'profile_image',
         'front_image',
         'back_image',
+        'video_url',
+        'video_background_image',
     ];
 }

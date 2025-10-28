@@ -25,6 +25,8 @@ class AboutUsSeeder extends Seeder
             'profile_image' => 'about-us/attachments/01K8GWA7EKYVWHM2M850Y1Y4B0.jpg',
             'front_image' => 'about-us/attachments/01K8GWA7ERSQMZWHY6DSJE7620.jpeg',
             'back_image' => 'about-us/attachments/01K8GWA7EXWJ5MY873KXX55KK0.jpeg',
+            'video_url' => 'https://www.youtube.com/watch?v=example',
+            'video_background_image' => 'about-us/attachments/video-bg.jpg',
         ]);
     }
 }

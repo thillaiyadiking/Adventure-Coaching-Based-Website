@@ -80,6 +80,19 @@ class AboutUsForm
                     ->disk('public')
                     ->directory('about-us/attachments')
                     ->nullable(),
+
+                TextInput::make('video_url')
+                    ->label('Video URL')
+                    ->url()
+                    ->nullable()
+                    ->placeholder('Enter video URL'),
+
+                FileUpload::make('video_background_image')
+                    ->label('Video Background Image')
+                    ->image()
+                    ->disk('public')
+                    ->directory('about-us/attachments')
+                    ->nullable(),
             ]);
     }
 }

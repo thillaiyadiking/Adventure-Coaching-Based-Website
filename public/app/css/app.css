@@ -6096,6 +6096,9 @@
 
 .footer-style2 {
   padding-top: 60px;
+  margin-top: 20px;
+  box-shadow: 0 -8px 15px rgb(169 177 194 / 50%);
+
 }
 
 .footer-style2 .footer-menu li:not(:last-child) {

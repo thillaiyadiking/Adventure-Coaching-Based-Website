@@ -112,6 +112,8 @@
     <!-- Javascript -->
     @include('layouts.scripts')
 
+    @stack('scripts')
+
 </body>
 
 

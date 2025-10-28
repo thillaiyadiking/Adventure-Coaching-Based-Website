@@ -66,6 +66,14 @@ class AboutUsTable
                     ->label('Back Image')
                     ->circular(false),
 
+                TextColumn::make('video_url')
+                    ->label('Video URL')
+                    ->searchable(),
+
+                ImageColumn::make('video_background_image')
+                    ->label('Video Background Image')
+                    ->circular(false),
+
                 TextColumn::make('created_at')
                     ->label('Created At')
                     ->dateTime()
