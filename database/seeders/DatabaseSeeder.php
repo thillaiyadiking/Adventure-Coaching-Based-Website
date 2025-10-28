@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             TestimonialSeeder::class,
             // GallerySeeder::class,
             ContactSeeder::class,
+            HomeSeeder::class,
         ]);
     }
 }
