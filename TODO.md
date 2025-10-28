@@ -1,5 +1,7 @@
-# TODO for Testimonials Enhancement
+# TODO: Update Seeders to Match Database Data
 
-- [x] Update Testimonial model with fillable and casts
-- [x] Configure TestimonialForm with all fields including repeater for detailed_testimonials
-- [x] Configure TestimonialsTable with columns
+## Tasks
+- [x] Update ServiceSeeder.php to include both records from the Service table
+- [x] Update GallerySeeder.php to match the single record in the Gallery table
+- [x] Verify AboutUsSeeder.php and TestimonialSeeder.php match the data (no changes needed)
+- [x] Test the seeders by running php artisan db:seed to ensure they populate correctly

@@ -14,39 +14,10 @@ class GallerySeeder extends Seeder
     public function run(): void
     {
         Gallery::create([
-            'title' => 'Adventure Training',
-            'subtitle' => 'Team Building',
-            'images' => ['galleries/adventure1.jpg', 'galleries/adventure2.jpg'],
-        ]);
-
-        Gallery::create([
-            'title' => 'Mountain Hiking',
-            'subtitle' => 'Nature Exploration',
-            'images' => ['galleries/mountain1.jpg', 'galleries/mountain2.jpg'],
-        ]);
-
-        Gallery::create([
-            'title' => 'Corporate Outbound',
-            'subtitle' => 'Leadership Development',
-            'images' => ['galleries/corporate1.jpg', 'galleries/corporate2.jpg'],
-        ]);
-
-        Gallery::create([
-            'title' => 'Youth Camp',
-            'subtitle' => 'Skill Building',
-            'images' => ['galleries/youth1.jpg', 'galleries/youth2.jpg'],
-        ]);
-
-        Gallery::create([
-            'title' => 'NLP Workshop',
-            'subtitle' => 'Mindset Training',
-            'images' => ['galleries/nlp1.jpg', 'galleries/nlp2.jpg'],
-        ]);
-
-        Gallery::create([
-            'title' => 'Group Activities',
-            'subtitle' => 'Fun & Learning',
-            'images' => ['galleries/group1.jpg', 'galleries/group2.jpg'],
+            'banner_image' => 'galleries/banners/01K8HP98GPK7Y2D3HWAQVE5YY5.jpg',
+            'title' => 'Initial Image',
+            'subtitle' => 'First',
+            'images' => ['galleries/01K8HP98H0C8B3Y2JNBW98JWTY.jpg', 'galleries/01K8HP98H50VK8R5V6AZVRDJSM.jpg', 'galleries/01K8HP98H832CJ0NRJST49CSVQ.jpg', 'galleries/01K8HP98HB2N9RWG4XMY6HYJ0E.jpg', 'galleries/01K8HP98HE77K4P8Y76SW46VW7.jpg', 'galleries/01K8HP98HHEQGYBQDWQYPAJ464.jpg'],
         ]);
     }
 }
