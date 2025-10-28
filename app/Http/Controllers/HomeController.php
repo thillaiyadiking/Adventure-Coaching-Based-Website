@@ -48,7 +48,7 @@ class HomeController extends Controller
     public function gallery()
     {
         $galleries = Gallery::all();
-        $banner_image_path = $galleries->first()->banner_image;
+        $banner_image_path = $galleries->isNotEmpty() ? $galleries->first()->banner_image : null;
         return view('gallery', compact('galleries', 'banner_image_path'));
     }
 }

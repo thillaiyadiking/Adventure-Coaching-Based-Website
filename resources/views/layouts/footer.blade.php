@@ -1,6 +1,6 @@
 <footer class="footer footer-style2">
     <div class="tf-container">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-3">
                 <div class="footer-item-logo">
                     <div class="logo">
@@ -90,7 +90,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="row footer-bottom">
             <div class="col-md-6">
                 <p class="copy-right">

@@ -41,12 +41,16 @@
                                 $addresses_raw = $contact_us->physical_addresses;
                                 $addresses = is_string($addresses_raw) ? json_decode($addresses_raw) : $addresses_raw;
                                 if (is_array($addresses)) {
-                                    $addresses = array_map(function($a){ return is_object($a) ? $a : (object)$a; }, $addresses);
+                                    $addresses = array_map(function ($a) {
+                                        return is_object($a) ? $a : (object) $a;
+                                    }, $addresses);
                                 }
                             @endphp
-                            @if($addresses)
-                                @foreach($addresses as $addr)
-                                    {{ $addr->address }}@if(!$loop->last)<br>@endif
+                            @if ($addresses)
+                                @foreach ($addresses as $addr)
+                                    {{ $addr->address }}@if (!$loop->last)
+                                        <br>
+                                    @endif
                                 @endforeach
                             @endif
                         </p>
@@ -75,23 +79,29 @@
                             $phones = is_string($phones_raw) ? json_decode($phones_raw, true) : $phones_raw;
                             // Normalize phones to array of objects with a string 'phone' property
                             if (is_array($phones)) {
-                                $phones = array_map(function($p){
+                                $phones = array_map(function ($p) {
                                     if (is_object($p)) {
-                                        $val = $p->phone ?? $p->number ?? $p->value ?? '';
-                                        return (object)['phone' => is_array($val) ? (string)reset($val) : (string)$val];
+                                        $val = $p->phone ?? ($p->number ?? ($p->value ?? ''));
+                                        return (object) [
+                                            'phone' => is_array($val) ? (string) reset($val) : (string) $val,
+                                        ];
                                     }
                                     if (is_array($p)) {
-                                        $val = $p['phone'] ?? $p['number'] ?? $p['value'] ?? '';
-                                        return (object)['phone' => is_array($val) ? (string)reset($val) : (string)$val];
+                                        $val = $p['phone'] ?? ($p['number'] ?? ($p['value'] ?? ''));
+                                        return (object) [
+                                            'phone' => is_array($val) ? (string) reset($val) : (string) $val,
+                                        ];
                                     }
-                                    return (object)['phone' => (string)$p];
+                                    return (object) ['phone' => (string) $p];
                                 }, $phones);
                             }
                         @endphp
-                        @if($phones)
+                        @if ($phones)
                             <p class="des">
-                                @foreach($phones as $p)
-                                    {{ $p->phone }}@if(!$loop->last)<br>@endif
+                                @foreach ($phones as $p)
+                                    {{ $p->phone }}@if (!$loop->last)
+                                        <br>
+                                    @endif
                                 @endforeach
                             </p>
                         @endif
@@ -124,23 +134,25 @@
                                 $emails = (array) $emails;
                             }
                             if (is_array($emails)) {
-                                $emails = array_map(function($e){
+                                $emails = array_map(function ($e) {
                                     if (is_array($e)) {
-                                        return (string) ($e['email'] ?? $e['address'] ?? $e['value'] ?? reset($e));
+                                        return (string) ($e['email'] ?? ($e['address'] ?? ($e['value'] ?? reset($e))));
                                     }
                                     if (is_object($e)) {
                                         $arr = (array) $e;
-                                        return (string) ($e->email ?? $e->address ?? $e->value ?? reset($arr));
+                                        return (string) ($e->email ?? ($e->address ?? ($e->value ?? reset($arr))));
                                     }
                                     return (string) $e;
                                 }, $emails);
                             }
                         @endphp
 
-                        @if(!empty($emails))
+                        @if (!empty($emails))
                             <p class="des">
-                                @foreach($emails as $em)
-                                    {{ $em }}@if(!$loop->last)<br>@endif
+                                @foreach ($emails as $em)
+                                    {{ $em }}@if (!$loop->last)
+                                        <br>
+                                    @endif
                                 @endforeach
                             </p>
                         @endif
@@ -150,20 +162,18 @@
 
             </div>
             <div class="row">
-                <div class="col-md-6">
+                {{-- <div class="col-md-6">
                     <div class="contact-us-map">
                         <div class="inner-header mb-45">
                             <h2 class="title">Get in touch</h2>
-                            <p class="des">{{ $contact_us->description ?? 'Lorem ipsum dolor sit amet consectetur adipiscing elit mattis faucibus odio feugiat arc dolor.' }}</p>
+                            <p class="des">
+                                {{ $contact_us->description ?? 'Lorem ipsum dolor sit amet consectetur adipiscing elit mattis faucibus odio feugiat arc dolor.' }}
+                            </p>
                         </div>
-                        {{-- <div class="map relative">
-                            <div id="map"></div>
-                        </div> --}}
-
                     </div>
 
-                </div>
-                <div class="col-md-6">
+                </div> --}}
+                {{-- <div class="col-md-6">
                     <div class="contact-us-wrap bg-4">
                         <div class="inner-header mb-60">
                             <h2 class="title">Fill Up The Form</h2>
@@ -189,62 +199,10 @@
 
                     </div>
 
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
 
-    <section class="brand-logo-widget bg-4">
-        <div class="tf-container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="swiper brand-logo overflow-hidden">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="assets/images/page/brand-logo.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/images/page/brand-logo.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/images/page/brand-logo.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/images/page/brand-logo.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/images/page/brand-logo.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/images/page/brand-logo.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-    </section>
-
-
-    <section class="mb--93 bg-1">
-        <div class="tf-container">
-            <div class="callt-to-action flex-two z-index3 relative">
-                <div class="callt-to-action-content flex-three">
-                    <div class="image">
-                        <img src="assets/images/page/ready.png" alt="Image">
-                    </div>
-                    <div class="content">
-                        <h2 class="title-call">Ready to adventure and enjoy natural</h2>
-                        <p class="des">Lorem ipsum dolor sit amet, consectetur notted adipisicin</p>
-                    </div>
-                </div>
-                <img src="assets/images/page/vector4.png" alt="" class="shape-ab">
-                <div class="callt-to-action-button">
-                    <a href="#" class="get-call">Let,s get started</a>
-                </div>
-            </div>
-        </div>
-
-    </section>
 @endsection

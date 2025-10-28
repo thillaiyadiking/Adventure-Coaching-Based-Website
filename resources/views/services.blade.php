@@ -369,8 +369,6 @@
     </section>
     <!-- Widget Service Section 2 -->
 
-
-    {{ $services->section_3_image }}
     <!-- Widget Service Section 3 -->
     <!-- Widget About Us -->
     <section class="about-us-h2 pd-main relative">
@@ -398,8 +396,8 @@
                                     }
                                 @endphp
 
-                                @if(!empty($images))
-                                    @foreach($images as $img)
+                                @if (!empty($images))
+                                    @foreach ($images as $img)
                                         @php
                                             $src = $img;
                                             if (!preg_match('/^https?:\/\//', $img)) {
@@ -407,9 +405,7 @@
                                             }
                                         @endphp
                                         <li>
-                                            <a href="{{ $src }}" target="_blank">
-                                                <img src="{{ $src }}" alt="">
-                                            </a>
+                                            <img src="{{ $src }}" alt="">
                                         </li>
                                     @endforeach
                                 @endif
