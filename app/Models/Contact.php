@@ -12,6 +12,7 @@ class Contact extends Model
         'physical_addresses',
         'websites',
         'banner_image',
+        'description',
     ];
 
     protected $casts = [

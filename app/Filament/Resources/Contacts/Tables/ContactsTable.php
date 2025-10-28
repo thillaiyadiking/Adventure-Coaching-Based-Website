@@ -43,6 +43,11 @@ class ContactsTable
                     ->label('Banner Image')
                     ->circular(false),
 
+                TextColumn::make('description')
+                    ->label('Description')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('created_at')
                     ->label('Created At')
                     ->dateTime()

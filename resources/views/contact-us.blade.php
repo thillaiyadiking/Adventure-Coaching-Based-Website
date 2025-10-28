@@ -36,7 +36,20 @@
                             </svg>
                         </div>
                         <span>address line</span>
-                        <p class="des">Bowery St, New York, NY <br> 10013,USA</p>
+                        <p class="des">
+                            @php
+                                $addresses_raw = $contact_us->physical_addresses;
+                                $addresses = is_string($addresses_raw) ? json_decode($addresses_raw) : $addresses_raw;
+                                if (is_array($addresses)) {
+                                    $addresses = array_map(function($a){ return is_object($a) ? $a : (object)$a; }, $addresses);
+                                }
+                            @endphp
+                            @if($addresses)
+                                @foreach($addresses as $addr)
+                                    {{ $addr->address }}@if(!$loop->last)<br>@endif
+                                @endforeach
+                            @endif
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -56,7 +69,32 @@
                             </svg>
                         </div>
                         <span>Phone Number</span>
-                        <p class="des">+1255 - 568 - 6523 <br> +1255 - 568 - 6523</p>
+                        @php
+                            $phones_raw = $contact_us->phone_numbers;
+                            // decode as array for consistent normalization
+                            $phones = is_string($phones_raw) ? json_decode($phones_raw, true) : $phones_raw;
+                            // Normalize phones to array of objects with a string 'phone' property
+                            if (is_array($phones)) {
+                                $phones = array_map(function($p){
+                                    if (is_object($p)) {
+                                        $val = $p->phone ?? $p->number ?? $p->value ?? '';
+                                        return (object)['phone' => is_array($val) ? (string)reset($val) : (string)$val];
+                                    }
+                                    if (is_array($p)) {
+                                        $val = $p['phone'] ?? $p['number'] ?? $p['value'] ?? '';
+                                        return (object)['phone' => is_array($val) ? (string)reset($val) : (string)$val];
+                                    }
+                                    return (object)['phone' => (string)$p];
+                                }, $phones);
+                            }
+                        @endphp
+                        @if($phones)
+                            <p class="des">
+                                @foreach($phones as $p)
+                                    {{ $p->phone }}@if(!$loop->last)<br>@endif
+                                @endforeach
+                            </p>
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -79,7 +117,33 @@
                             </svg>
                         </div>
                         <span>Mail Adress</span>
-                        <p class="des">email@example.com <br> info@yourdomain.com</p>
+                        @php
+                            $emails_raw = $contact_us->email_addresses;
+                            $emails = is_string($emails_raw) ? json_decode($emails_raw, true) : $emails_raw;
+                            if (is_object($emails)) {
+                                $emails = (array) $emails;
+                            }
+                            if (is_array($emails)) {
+                                $emails = array_map(function($e){
+                                    if (is_array($e)) {
+                                        return (string) ($e['email'] ?? $e['address'] ?? $e['value'] ?? reset($e));
+                                    }
+                                    if (is_object($e)) {
+                                        $arr = (array) $e;
+                                        return (string) ($e->email ?? $e->address ?? $e->value ?? reset($arr));
+                                    }
+                                    return (string) $e;
+                                }, $emails);
+                            }
+                        @endphp
+
+                        @if(!empty($emails))
+                            <p class="des">
+                                @foreach($emails as $em)
+                                    {{ $em }}@if(!$loop->last)<br>@endif
+                                @endforeach
+                            </p>
+                        @endif
                     </div>
 
                 </div>
@@ -90,12 +154,11 @@
                     <div class="contact-us-map">
                         <div class="inner-header mb-45">
                             <h2 class="title">Get in touch</h2>
-                            <p class="des">Lorem ipsum dolor sit amet consectetur adipiscing elit mattis
-                                faucibus odio feugiat arc dolor.</p>
+                            <p class="des">{{ $contact_us->description ?? 'Lorem ipsum dolor sit amet consectetur adipiscing elit mattis faucibus odio feugiat arc dolor.' }}</p>
                         </div>
-                        <div class="map relative">
+                        {{-- <div class="map relative">
                             <div id="map"></div>
-                        </div>
+                        </div> --}}
 
                     </div>
 

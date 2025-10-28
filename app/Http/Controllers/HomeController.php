@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
+use App\Models\Contact;
 use App\Models\Gallery;
 use App\Models\Service;
 use App\Models\Testimonial;
@@ -24,7 +25,9 @@ class HomeController extends Controller
 
     public function contactUs()
     {
-        return view('contact-us');
+        $contact_us = Contact::first();
+        $banner_image_path = $contact_us->banner_image;
+        return view('contact-us', compact('contact_us', 'banner_image_path'));
     }
 
     public function services()

@@ -65,6 +65,11 @@ class ContactForm
                     ->disk('public')
                     ->directory('contacts/attachments')
                     ->nullable(),
+
+                \Filament\Forms\Components\Textarea::make('description')
+                    ->label('Description')
+                    ->placeholder('Enter description')
+                    ->nullable(),
             ]);
     }
 }
