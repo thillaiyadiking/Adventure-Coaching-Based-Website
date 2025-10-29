@@ -21,28 +21,28 @@ class HomeController extends Controller
     public function aboutUs()
     {
         $about_us = AboutUs::first();
-        $banner_image_path = $about_us->banner_image;
+        $banner_image_path = $about_us ? $about_us->banner_image : null;
         return view('about-us', compact('about_us', 'banner_image_path'));
     }
 
     public function contactUs()
     {
         $contact_us = Contact::first();
-        $banner_image_path = $contact_us->banner_image;
+        $banner_image_path = $contact_us ? $contact_us->banner_image : null;
         return view('contact-us', compact('contact_us', 'banner_image_path'));
     }
 
     public function services()
     {
         $services = Service::first();
-        $banner_image_path = $services->banner_image;
+        $banner_image_path = $services ? $services->banner_image : null;
         return view('services', compact('services', 'banner_image_path'));
     }
 
     public function testimonials()
     {
         $testimonials = Testimonial::first();
-        $banner_image_path = $testimonials->banner_image;
+        $banner_image_path = $testimonials ? $testimonials->banner_image : null;
         return view('testimonials', compact('testimonials', 'banner_image_path'));
     }
     public function gallery()

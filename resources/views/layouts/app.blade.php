@@ -69,40 +69,74 @@
             <p class="des">The world’s first and largest digital market
                 for crypto collectibles and non-fungible
             </p>
+            
             <ul class="canvas-info">
                 <li class="flex-three">
                     <i class="icon-noun-mail-5780740-1"></i>
-                    <p>Info@webmail.com</p>
+                    <p>
+                        @if (!empty($CompanyContacts->email_addresses) && is_iterable($CompanyContacts->email_addresses))
+                            @foreach ($CompanyContacts->email_addresses as $email)
+                                @php
+                                    $emailValue = is_array($email) ? $email['email'] ?? null : $email->email ?? null;
+                                @endphp
+
+                                @if ($emailValue)
+                                    <a href="mailto:{{ $emailValue }}">{{ $emailValue }}</a>
+                                    @if (!$loop->last)
+                                        ,
+                                    @endif
+                                @endif
+                            @endforeach
+                        @else
+                            <span>No email available</span>
+                        @endif
+                    </p>
+
                 </li>
+
+
+                {{-- 📞 Phone Numbers --}}
                 <li class="flex-three">
                     <i class="icon-Group-9"></i>
-                    <p>684 555-0102 490</p>
+                    <p>
+                        @php
+                            $phones = $CompanyContacts->phone_numbers ?? [];
+                            if (!is_array($phones)) {
+                                $phones = json_decode($phones, true) ?? [];
+                            }
+                        @endphp
+                        @forelse ($phones as $phone)
+                            <a
+                                href="tel:{{ preg_replace('/\D/', '', is_array($phone) ? implode('', $phone) : $phone) }}">
+                                {{ is_array($phone) ? implode('', $phone) : $phone }}
+                            </a>
+                            @if (!$loop->last)
+                                ,
+                            @endif
+                        @empty
+                            <span>No phone number available</span>
+                        @endforelse
+                    </p>
                 </li>
+
+                {{-- 📍 Addresses --}}
                 <li class="flex-three">
                     <i class="icon-Layer-19"></i>
-                    <p>6391 Elgin St. Celina, NYC 10299</p>
-                </li>
-            </ul>
-            <ul class="social flex-three">
-                <li>
-                    <a href="#">
-                        <i class="icon-icon-2"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-icon-1"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-8"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-6"></i>
-                    </a>
+                    <p>
+                        @php
+                            $addresses = $CompanyContacts->physical_addresses ?? [];
+                            if (!is_array($addresses)) {
+                                $addresses = json_decode($addresses, true) ?? [];
+                            }
+                        @endphp
+                        @forelse ($addresses as $address)
+                            {{ is_array($address) ? implode(', ', $address) : $address }}@if (!$loop->last)
+                                ,
+                            @endif
+                        @empty
+                            <span>No address available</span>
+                        @endforelse
+                    </p>
                 </li>
             </ul>
 

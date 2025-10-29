@@ -41,8 +41,6 @@ class AboutUsResource extends Resource
     {
         return [
             'index' => ListAboutUs::route('/'),
-            'create' => CreateAboutUs::route('/create'),
-            'edit' => EditAboutUs::route('/{record}/edit'),
         ];
     }
 }

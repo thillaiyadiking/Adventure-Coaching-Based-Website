@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Contact;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        View::share('CompanyContacts', Contact::first()); // example model
+
     }
 }

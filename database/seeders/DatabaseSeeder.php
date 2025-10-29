@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             AboutUsSeeder::class,
             ServiceSeeder::class,
             TestimonialSeeder::class,
-            // GallerySeeder::class,
+            GallerySeeder::class,
             ContactSeeder::class,
             HomeSeeder::class,
         ]);

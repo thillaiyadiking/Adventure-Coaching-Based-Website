@@ -161,46 +161,7 @@
                 </div>
 
             </div>
-            <div class="row">
-                {{-- <div class="col-md-6">
-                    <div class="contact-us-map">
-                        <div class="inner-header mb-45">
-                            <h2 class="title">Get in touch</h2>
-                            <p class="des">
-                                {{ $contact_us->description ?? 'Lorem ipsum dolor sit amet consectetur adipiscing elit mattis faucibus odio feugiat arc dolor.' }}
-                            </p>
-                        </div>
-                    </div>
 
-                </div> --}}
-                {{-- <div class="col-md-6">
-                    <div class="contact-us-wrap bg-4">
-                        <div class="inner-header mb-60">
-                            <h2 class="title">Fill Up The Form</h2>
-                            <p class="des">Your email address will not be published. Required fields <br>
-                                are marked *</p>
-                        </div>
-                        <form action="https://themesflat.co/" id="form-contact-us">
-                            <div class="input-wrap relative">
-                                <i class="icon-user-1-1"></i>
-                                <input type="text" placeholder="Your Name*">
-                            </div>
-                            <div class="input-wrap relative">
-                                <i class="icon-Group-51"></i>
-                                <input type="email" placeholder="Email Address*">
-                            </div>
-                            <div class="input-wrap relative">
-                                <i class="icon-content"></i>
-                                <textarea name="text-write" rows="7" cols="30" placeholder="Enter Your Messege here"></textarea>
-                            </div>
-                            <button type="submit" class="btn-submit-contact"><i class="icon-Group-121"></i>
-                                Get In Touch</button>
-                        </form>
-
-                    </div>
-
-                </div> --}}
-            </div>
         </div>
     </section>
 

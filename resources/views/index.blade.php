@@ -286,13 +286,10 @@ $isVideo = preg_match('/\.(mp4|webm|ogg|avi|mov)$/i', $filePath);
                         <div class="swiper-wrapper">
 
                             @foreach ($home->summary_of_services ?? [] as $service)
-                                @php
-                                    // print_r($service);
-                                @endphp
                                 <div class="swiper-slide">
                                     <div class="tf-icon-box icon-box-style1 relative">
                                         <div class="icon">
-                                            {!! $service['icon_url'] !!}
+                                            {!! $service['icon_url'] ?? '' !!}
                                         </div>
                                         <div class="content">
                                             <h4 class="title-icon"><a href="#">{{ $service['title'] }}</a></h4>

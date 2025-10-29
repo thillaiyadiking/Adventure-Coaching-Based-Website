@@ -42,9 +42,7 @@ class GalleryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListGalleries::route('/'),
-            'create' => CreateGallery::route('/create'),
-            'edit' => EditGallery::route('/{record}/edit'),
+            'index' => ListGalleries::route('/')
         ];
     }
 }
