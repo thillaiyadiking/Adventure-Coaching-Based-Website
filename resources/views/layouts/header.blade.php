@@ -150,7 +150,7 @@
         <div class="menu-backdrop"></div>
         <nav class="menu-box">
             <div class="nav-logo"><a href="index.html">
-                    <img src="assets/images/logo2.png" alt=""></a></div>
+                    <img src="assets/images/logo.png" alt=""></a></div>
             <div class="bottom-canvas">
                 <div class="menu-outer">
                 </div>
