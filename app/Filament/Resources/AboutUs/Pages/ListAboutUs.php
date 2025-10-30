@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\AboutUs\Pages;
 
 use App\Filament\Resources\AboutUs\AboutUsResource;
+use App\Models\AboutUs;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
@@ -13,7 +14,7 @@ class ListAboutUs extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            CreateAction::make()->visible(fn() => AboutUs::count() === 0),
         ];
     }
 }

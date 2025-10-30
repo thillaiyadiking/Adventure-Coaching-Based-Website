@@ -3,11 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 
 
-<!-- Mirrored from themesflat.co/html/vitour/home2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 31 Dec 2024 13:42:51 GMT -->
 
 <head>
     <meta charset="utf-8">
-    <title>Vitour - Travel & Tour Booking HTML Template</title>
+    <title>Elevate 360 - Admin Panel</title>
 
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -16,7 +15,7 @@
     @include('layouts.styles')
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/images/favico.png">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="assets/images/favico.png">
 
 </head>
@@ -66,10 +65,10 @@
             <div class="logo-canvas">
                 <img src="assets/images/logo.png" alt="image">
             </div>
-            <p class="des">The world’s first and largest digital market
-                for crypto collectibles and non-fungible
+            <p class="des">
+                {{ $CompanyContacts->description ?? 'Company description not available.' }}
             </p>
-            
+
             <ul class="canvas-info">
                 <li class="flex-three">
                     <i class="icon-noun-mail-5780740-1"></i>
@@ -149,8 +148,5 @@
     @stack('scripts')
 
 </body>
-
-
-<!-- Mirrored from themesflat.co/html/vitour/home2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 31 Dec 2024 13:43:25 GMT -->
 
 </html>

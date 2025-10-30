@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Galleries\Pages;
 
 use App\Filament\Resources\Galleries\GalleryResource;
+use App\Models\Gallery;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
@@ -13,7 +14,7 @@ class ListGalleries extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            CreateAction::make()->visible(fn() => Gallery::count() === 0)
         ];
     }
 }

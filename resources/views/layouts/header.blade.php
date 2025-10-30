@@ -62,16 +62,16 @@
                                             <li class="{{ request()->routeIs('home') ? 'current' : '' }}">
                                                 <a href="{{ route('home') }}">Home</a>
                                             </li>
-                                            <li class="{{ request()->routeIs('about-us') ? 'current' : '' }}"><a
-                                                    href="{{ route('about-us') }}">About Us</a></li>
                                             <li class="{{ request()->routeIs('services') ? 'current' : '' }}"><a
                                                     href="{{ route('services') }}">Services</a></li>
-                                            <li class="{{ request()->routeIs('gallery') ? 'current' : '' }}"><a
-                                                    href="{{ route('gallery') }}">Gallery</a></li>
                                             <li class="{{ request()->routeIs('testimonials') ? 'current' : '' }}"><a
                                                     href="{{ route('testimonials') }}">Testimonials</a></li>
+                                            <li class="{{ request()->routeIs('gallery') ? 'current' : '' }}"><a
+                                                    href="{{ route('gallery') }}">Gallery</a></li>
                                             <li class="{{ request()->routeIs('contact-us') ? 'current' : '' }}"><a
                                                     href="{{ route('contact-us') }}">Contact</a></li>
+                                            <li class="{{ request()->routeIs('about-us') ? 'current' : '' }}"><a
+                                                    href="{{ route('about-us') }}">About Us</a></li>
                                         </ul>
                                     </div>
                                 </nav>

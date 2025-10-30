@@ -127,37 +127,7 @@
     <br>
   
 
-    <section class="brand-logo-widget bg-4">
-        <div class="tf-container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="swiper brand-logo overflow-hidden">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="assets/images/page/brand-logo.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/images/page/brand-logo.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/images/page/brand-logo.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/images/page/brand-logo.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/images/page/brand-logo.png" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="assets/images/page/brand-logo.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-    </section>
 @endsection
 
 @push('scripts')
