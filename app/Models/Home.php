@@ -8,12 +8,14 @@ class Home extends Model
 {
     protected $fillable = [
         'header_text',
+        'header_description',
         'header_notes',
         'brand_logos',
         'banner_images',
         'summary_of_places',
         'summary_of_services',
         'summary_of_overview',
+        'animation_word_of_banner',
     ];
 
     protected $casts = [

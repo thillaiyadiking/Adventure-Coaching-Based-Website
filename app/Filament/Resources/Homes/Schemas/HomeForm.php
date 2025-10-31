@@ -19,6 +19,12 @@ class HomeForm
                         TextInput::make('header_text')
                             ->label('Header Text')
                             ->required(),
+                        TextInput::make('header_description')
+                            ->label('Header Description')
+                            ->required(),
+                        TextInput::make('animation_word_of_banner')
+                            ->label('Animation Word of Banner')
+                            ->required(),
                         Repeater::make('header_notes')
                             ->label('Header Notes')
                             ->schema([
@@ -84,6 +90,22 @@ class HomeForm
                                             ->placeholder('Enter URL or leave blank to upload'),
                                         FileUpload::make('file')
                                             ->disk('public')
+                                            ->rules([
+                                                function ($attribute, $value, $fail) {
+                                                    if (!$value) return;
+
+                                                    $path = $value->getRealPath();
+                                                    [$width, $height] = getimagesize($path);
+
+                                                    // Calculate ratio
+                                                    $ratio = $width / $height;
+
+                                                    // Example: Allow 4:3 ratio (≈1.33)
+                                                    if (abs($ratio - (4 / 3)) > 0.05) {
+                                                        $fail('The image must have a 4:3 aspect ratio (rectangular).');
+                                                    }
+                                                },
+                                            ])
                                             ->label('Upload Image')
                                             ->image()
                                             ->directory('homes/places')

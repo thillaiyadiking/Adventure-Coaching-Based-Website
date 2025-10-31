@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AboutUs;
 use App\Models\Contact;
 use App\Models\Gallery;
+use App\Models\General;
 use App\Models\Home;
 use App\Models\Service;
 use App\Models\Testimonial;
@@ -15,7 +16,9 @@ class HomeController extends Controller
     public function index()
     {
         $home = Home::first();
-        return view('index', compact('home'));
+        $generals = General::first();
+
+        return view('index', compact('home', 'generals'));
     }
 
     public function aboutUs()

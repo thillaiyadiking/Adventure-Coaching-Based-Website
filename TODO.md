@@ -1,7 +1,6 @@
-# TODO: Enable Video Uploads for Banner Media
+# TODO: Fix General Resource Sidebar Link Issue
 
-## Tasks
-- [x] Modify `app/Filament/Resources/Homes/Schemas/HomeForm.php` to allow uploading both images and videos for banner media
-- [x] Update `resources/views/index.blade.php` to detect and render videos in the banner slider
-- [ ] Test uploading videos and images, ensure correct display in slider
-- [ ] Verify video playback in Swiper component
+- [x] Update app/Models/General.php to include fillable fields and casts for social_media_links
+- [x] Update app/Filament/Resources/Generals/Schemas/GeneralForm.php to add form component for social_media_links
+- [x] Update app/Filament/Resources/Generals/Tables/GeneralsTable.php to add table column for social_media_links
+- [x] Update resources/views/layouts/header.blade.php to display social media links dynamically

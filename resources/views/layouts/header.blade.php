@@ -1,45 +1,92 @@
 <header class="main-header header-style1 flex">
     <!-- Header Lower -->
     <div id="header">
-        {{-- <div class="header-top">
+        <div class="header-top">
             <div class="header-top-wrap flex-two">
                 <div class="header-top-right">
                     <ul class=" flex-three">
                         <li class="flex-three">
                             <i class="icon-day"></i>
-                            <span>Thursday, Mar 26, 2021</span>
+                            <span>{{ date('l, M d, Y') }}</span>
+
                         </li>
                         <li class="flex-three">
                             <i class="icon-mail"></i>
-                            <span>Info@Webmail.Com</span>
-                            <F /li>
+
+                            @if (!empty($CompanyContacts->email_addresses) && is_iterable($CompanyContacts->email_addresses))
+                                @php
+                                    $firstEmail = null;
+
+                                    foreach ($CompanyContacts->email_addresses as $email) {
+                                        $firstEmail = is_array($email)
+                                            ? $email['email'] ?? null
+                                            : $email->email ?? null;
+                                        if ($firstEmail) {
+                                            break;
+                                        }
+                                    }
+                                @endphp
+
+                                @if ($firstEmail)
+                                    <a href="mailto:{{ $firstEmail }}" style="color: white">{{ $firstEmail }}</a>
+                                @else
+                                    <span>-</span>
+                                @endif
+                            @else
+                                <span>-</span>
+                            @endif
+                        </li>
+
                         <li class="flex-three">
                             <i class="icon-phone"></i>
-                            <span>684 555-0102 490</span>
+                            @php
+                                $phones = $CompanyContacts->phone_numbers ?? [];
+                                if (!is_array($phones)) {
+                                    $phones = json_decode($phones, true) ?? [];
+                                }
+
+                                $firstPhone = null;
+                                foreach ($phones as $phone) {
+                                    $firstPhone = is_array($phone) ? implode('', $phone) : $phone;
+                                    if ($firstPhone) {
+                                        break;
+                                    }
+                                }
+                            @endphp
+
+                            @if ($firstPhone)
+                                <a href="tel:{{ preg_replace('/\D/', '', $firstPhone) }}"
+                                    style="color: white">{{ $firstPhone }}</a>
+                            @else
+                                <span>-</span>
+                            @endif
                         </li>
 
 
                     </ul>
                 </div>
+
+
                 <div class="header-top-left flex-two">
-                    <a href="contact-us.html" class="booking">
+                    <a href="{{ route('contact-us') }}" class="booking">
                         <i class="icon-19"></i>
                         <span>Booking Now</span>
                     </a>
                     <div class="follow-social flex-two">
                         <span>Follow Us :</span>
                         <ul class="flex-two">
-                            <li><a href="#"><i class="icon-icon-2"></i></a></li>
-                            <li><a href="#"><i class="icon-icon_03"></i></a></li>
-                            <li><a href="#"><i class="icon-x"></i></a></li>
-                            <li><a href="#"><i class="icon-icon"></i></a></li>
+                            @if($generals && $generals->social_media_links)
+                                @foreach($generals->social_media_links as $link)
+                                    <li><a href="{{ $link['url'] }}" {!! $link['icon'] ? 'title="' . $link['platform'] . '"' : '' !!}>{!! $link['icon'] ?: '<i class="icon-' . $link['platform'] . '"></i>' !!}</a></li>
+                                @endforeach
+                            @endif
                         </ul>
                     </div>
 
                 </div>
             </div>
 
-        </div> --}}
+        </div>
         <div class="header-lower">
             <div class="tf-container full">
                 <div class="row">

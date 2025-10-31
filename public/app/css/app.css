@@ -1067,7 +1067,7 @@
 .header-style1 .header-lower .header-account .icon-bar-header a {
   color: #081E2A;
   background-color: #FF1637;
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
   display: inline-block;
   font-size: 22px;
@@ -3198,7 +3198,7 @@
 .testimonial-section-h4 .gallery-testimonial-h4 .mySwiperGalllery .swiper-wrapper .swiper-slide .image {
   overflow: hidden;
   width: 111px;
-  height: 111px;
+  height: 1111px;
   border-radius: 20px;
   transform: rotate(45deg);
   border-bottom: 5px solid transparent;
@@ -8977,7 +8977,7 @@
 .icon-box-style1 {
   border: 1px solid rgba(224, 224, 224, 0.28);
   box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.06);
-  padding: 49px 41px 49px 41px;
+  padding: 49px 41px 19px 41px;
   transition: all 0.3s ease-in-out;
   overflow: hidden;
 }
